@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :elements
   devise_for :authors
   get 'home/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -8,6 +9,8 @@ Rails.application.routes.draw do
 
   # Authors::PostsController
   scope module: 'authors' do
-    resources :posts
+    resources :posts do
+      resources :elements
+    end
   end
 end

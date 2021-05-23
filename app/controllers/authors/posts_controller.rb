@@ -2,15 +2,12 @@
 
 module Authors
   class PostsController < AuthorsController
-    before_action :set_post, only: %i[show edit update destroy]
+    before_action :set_post, only: %i[edit update destroy]
 
     # GET /posts
     def index
       @posts = current_author.posts
     end
-
-    # GET /posts/1
-    def show; end
 
     # GET /posts/new
     def new
@@ -18,14 +15,16 @@ module Authors
     end
 
     # GET /posts/1/edit
-    def edit; end
+    def edit
+      @element = @post.elements.build
+    end
 
     # POST /posts
     def create
       @post = current_author.posts.build(post_params)
 
       if @post.save
-        redirect_to @post, notice: 'Post was successfully created.'
+        redirect_to posts_path, notice: 'Post was successfully created.'
       else
         render :new
       end
@@ -34,7 +33,7 @@ module Authors
     # PATCH/PUT /posts/1
     def update
       if @post.update(post_params)
-        redirect_to @post, notice: 'Post was successfully updated.'
+        redirect_to edit_post_path(@post), notice: 'Post was successfully updated.'
       else
         render :edit
       end
@@ -55,7 +54,7 @@ module Authors
 
     # Only allow a trusted parameter "white list" through.
     def post_params
-      params.require(:post).permit(:title, :description)
+      params.require(:post).permit(:title, :description, :hero_image)
     end
   end
 end
