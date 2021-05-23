@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :elements
   devise_for :authors
+
   get 'home/index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root to: 'home#index'
+  root to: 'readers/home#index'
+
+  # Readers::PostsController
+  get '/blog/:id' => 'readers/posts#show', as: :blog_post
 
   # Authors::PostsController
   scope module: 'authors' do

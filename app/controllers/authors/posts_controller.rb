@@ -6,7 +6,7 @@ module Authors
 
     # GET /posts
     def index
-      @posts = current_author.posts
+      @posts = current_author.posts.order(created_at: :desc)
     end
 
     # GET /posts/new
@@ -23,8 +23,10 @@ module Authors
     def create
       @post = current_author.posts.build(post_params)
 
+      # @post.definition ||= @post.body.truncate
+
       if @post.save
-        redirect_to posts_path, notice: 'Post was successfully created.'
+        redirect_to edit_post_path(@post), notice: 'Post was successfully created.'
       else
         render :new
       end
@@ -42,14 +44,14 @@ module Authors
     # DELETE /posts/1
     def destroy
       @post.destroy
-      redirect_to posts_url, notice: 'Post was successfully destroyed.'
+      redirect_to posts_url, notice: 'Post was successfully deleted.'
     end
 
     private
 
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = current_author.posts.find(params[:id])
+      @post = current_author.posts.friendly.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
