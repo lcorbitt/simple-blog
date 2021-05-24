@@ -21,6 +21,8 @@ class Post < ApplicationRecord
     order(published_at: :desc)
   end
 
+  attr_accessor :slug
+
   def should_generate_new_friendly_id?
     title_changed?
   end

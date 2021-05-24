@@ -5,4 +5,8 @@ class Author < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts
+
+  validates :name, uniqueness: true
+
+  # attr_accessor :name
 end
