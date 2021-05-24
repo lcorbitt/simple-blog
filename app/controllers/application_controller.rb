@@ -1,8 +1,10 @@
 class ApplicationController < ActionController::Base
+  include Pagy::Backend
+  
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-    new_post_path
+    root_path
   end
 
   protected

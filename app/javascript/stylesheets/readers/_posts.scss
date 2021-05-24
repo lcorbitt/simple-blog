@@ -10,6 +10,27 @@
 			border-radius: 5px 5px 0 0;
 		}
 	}
+
+	.page-item {
+		.page-link {
+			color: #000;
+			border: none;
+			outline: none;
+		}
+
+		&.active {
+			.page-link {
+				background-color: #ffc107 !important;
+				border: none;
+				outline: none;
+			}
+		}
+	}
+
+	a:focus {
+		border: none;
+		outline: none;
+	}
 }
 
 .readers.posts.show {

@@ -35,7 +35,7 @@ module Authors
     # PATCH/PUT /posts/1
     def update
       if !@post.elements.size.positive?
-        notice = 'Post must have at least one element.'
+        notice = 'Post must have at least one element before saving.'
       else
         @post.update(post_params)
         notice = 'Post was successfully updated.'

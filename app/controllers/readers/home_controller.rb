@@ -1,7 +1,7 @@
 module Readers
   class HomeController < ReadersController
     def index
-      @posts = Post.published.most_recently_published
+      @pagy, @posts = pagy(Post.published.most_recently_published, items: 9)
     end
   end
 end

@@ -1,26 +1,30 @@
-<nav class="navbar navbar-light bg-warning p-4 border border-bottom border-dark border-start-0 border-top-0 border-end-0">
+<nav class="navbar navbar-light bg-warning p-4 <%= bottom_border ? 'border border-bottom border-dark border-start-0 border-top-0 border-end-0' : '' %>">
   <div class="container-fluid ms-5">
     <a class="navbar-brand" href="#">
     <%= link_to root_path, class: "text-decoration-none text-dark" do %>
       <h2>wäCH</h2>
     <% end %>
-    <ul class="navbar-nav ms-auto me-5 d-inline">
+    <ul class="navbar-nav ms-auto me-4 d-inline">
       <% if current_author %>
         <li class="nav-item d-inline-block me-5">
           <%= link_to "My Profile", posts_path, class: "nav-link" %>
         </li>
 
         <li class="nav-item d-inline-block">
-          <%= link_to "Sign out", destroy_author_session_path, class: "nav-link", method: :delete %>
+          <%= link_to "Sign out", destroy_author_session_path, class: "btn btn-outline-dark rounded-pill", method: :delete %>
         </li>        
       <% else %>
-        <li class="nav-item d-inline-block">
-          <%= link_to "Sign Up", author_session_path, class: "nav-link me-5" %>
-        </li>
+        <% unless sign_up == false %>
+          <li class="nav-item d-inline-block">
+            <%= link_to "Sign Up", new_author_registration_path, class: "me-5 btn btn-outline-dark rounded-pill" %>
+          </li>
+        <% end %>
 
-        <li class="nav-item d-inline-block">
-          <%= link_to "Log In", new_author_session_path, class: "btn btn-outline-dark rounded-pill" %>
-        </li>
+        <% unless sign_in == false %>
+          <li class="nav-item d-inline-block">
+            <%= link_to "Sign In", new_author_session_path, class: "btn btn-outline-dark rounded-pill" %>
+          </li>
+        <% end %>
       <% end %>
       
       <%

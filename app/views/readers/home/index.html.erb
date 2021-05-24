@@ -1,8 +1,8 @@
-<%= render "shared/nav" %>
+<%= render "shared/nav", sign_in: true, sign_up: true, bottom_border: true %>
 <%= render "jumbotron" %>
 
 <div class="container">
-  <div class="row">
+  <div class="row mb-3">
     <% @posts.each do |post| %>
       <div class="col-md-6 col-lg-4 pt-5 rounded">
         <div class="card post-card">
@@ -17,5 +17,9 @@
         </div>
       </div>
     <% end %>
+  </div>
+
+  <div class="float-end">
+    <%== pagy_bootstrap_nav(@pagy) %>
   </div>
 </div>
