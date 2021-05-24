@@ -31,12 +31,18 @@
         <% end %>
       </div>
       <div class="card mb-5">
-        <div class="card-header text-end">
-          <% if @post.published? %>
-            <b>Published</b> <%= time_ago_in_words(@post.published_at) %> ago
-          <% else %>
-            Unpublished
-          <% end %>
+        <div class="card-header d-flex justify-content-between">
+          <div class="text-start">
+            <i>Drag and drop to switch order of elements.</i>
+          </div>
+
+          <div class="text-end">
+            <% if @post.published? %>
+              <b>Published</b> <%= time_ago_in_words(@post.published_at) %> ago
+            <% else %>
+              Unpublished
+            <% end %>
+          </div>
         </div>
         <div
           class="card-body pt-5"
