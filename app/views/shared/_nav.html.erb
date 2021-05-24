@@ -1,12 +1,12 @@
 <nav class="navbar navbar-light bg-warning p-4 <%= bottom_border ? 'border border-bottom border-dark border-start-0 border-top-0 border-end-0' : '' %>">
-  <div class="container-fluid ms-5">
-    <a class="navbar-brand" href="#">
+  <div class="container-fluid">
     <%= link_to root_path, class: "text-decoration-none text-dark" do %>
       <h2>wäCH</h2>
     <% end %>
-    <ul class="navbar-nav ms-auto me-4 d-inline">
+
+    <ul class="navbar-nav ms-auto me-1 d-inline">
       <% if current_author %>
-        <li class="nav-item d-inline-block me-5">
+        <li class="nav-item d-inline-block me-2">
           <%= link_to "My Profile", posts_path, class: "nav-link" %>
         </li>
 
@@ -16,7 +16,7 @@
       <% else %>
         <% unless sign_up == false %>
           <li class="nav-item d-inline-block">
-            <%= link_to "Sign Up", new_author_registration_path, class: "me-5 btn btn-outline-dark rounded-pill" %>
+            <%= link_to "Sign Up", new_author_registration_path, class: "btn btn-outline-dark rounded-pill" %>
           </li>
         <% end %>
 
@@ -26,34 +26,6 @@
           </li>
         <% end %>
       <% end %>
-      
-      <%
-=begin%>
- <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">            Dropdown on Right</a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action with a lot of text inside of an item</a>
-        </div>
-      </li> 
-<%
-=end%>
     </ul>
-    <%
-=begin%>
- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link active float-end" aria-current="page" href="#">Home</a>
-        <a class="nav-link float-end" href="#">Features</a>
-        <a class="nav-link float-end" href="#">Pricing</a>
-        <a class="nav-link float-end disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </div>
-    </div> 
-<%
-=end%>
-
   </div>
 </nav>

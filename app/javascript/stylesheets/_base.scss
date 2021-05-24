@@ -25,7 +25,6 @@
 		}
 
 		@media only screen and (min-width: 481px) {
-			/* Font size of div elements will be 70px when the screen is 481px or wider */
 			.delete-img-btn {
 				position: absolute;
 				right: 11.5%;
@@ -38,7 +37,6 @@
 		}
 
 		@media only screen and (max-width: 1400px) {
-			/* If the screen is 480px or less, the font of div elements will be 25px */
 			.delete-img-btn {
 				position: absolute;
 				right: 5.5%;
@@ -66,4 +64,11 @@
 		list-style: none;
 		padding-left: 0;
 	}
+}
+
+@media only screen and (max-width: 990px) {
+}
+
+.jumbo {
+	height: 300px;
 }
