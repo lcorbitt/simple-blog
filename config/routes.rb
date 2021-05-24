@@ -3,6 +3,10 @@
 Rails.application.routes.draw do
   devise_for :authors
 
+  namespace :authors do
+    root to: 'home#index'
+  end
+
   get 'home/index'
   root to: 'readers/home#index'
 

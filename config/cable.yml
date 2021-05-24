@@ -8,5 +8,6 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
+  # url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
+  url: redis://:p1f8bdb1f1fe36ccd1f451c58a80795a524e422a2e9113329b03142cfa84403a4@ec2-3-212-9-124.compute-1.amazonaws.com:8939
   channel_prefix: simple_blog_production

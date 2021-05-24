@@ -2,6 +2,8 @@
 
 module Authors
   class PostsController < AuthorsController
+    before_action :authenticate_author!, only: %i[new edit update create destroy]
+
     before_action :set_post, only: %i[edit update destroy]
 
     # GET /posts

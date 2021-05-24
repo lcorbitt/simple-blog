@@ -1,3 +1,18 @@
+<% if current_author %>
+  <%= link_to "Sign out", destroy_author_session_path, method: :delete %>
+<% else %>
+  <%
+=begin%>
+ <%= link_to "Sign in", destroy_author_session_path, method: :delete %> 
+<%
+=end%>
+  <%
+=begin%>
+ <%= link_to "Sign up", destroy_author_session_path, method: :delete %> 
+<%
+=end%>
+<% end %>
+
 <h4 class="d-flex justify-content-between mb-4">
   <span>Posts</span>
   <%= link_to 'New Post', new_post_path, class: "btn btn-primary" %>
