@@ -2,13 +2,13 @@
 
 module Authors
   class PostsController < AuthorsController
-    before_action :authenticate_author!, only: %i[new edit update create destroy]
+    before_action :authenticate_author!, only: %i[index new edit update create destroy]
 
     before_action :set_post, only: %i[edit update destroy]
 
     # GET /posts
     def index
-      @posts = current_author.posts.order(created_at: :desc)
+      @posts = current_author.posts.order(created_at: :desc) || []
     end
 
     # GET /posts/new
@@ -25,8 +25,6 @@ module Authors
     def create
       @post = current_author.posts.build(post_params)
 
-      # @post.definition ||= @post.body.truncate
-
       if @post.save
         redirect_to edit_post_path(@post), notice: 'Post was successfully created.'
       else
@@ -36,11 +34,14 @@ module Authors
 
     # PATCH/PUT /posts/1
     def update
-      if @post.update(post_params)
-        redirect_to edit_post_path(@post), notice: 'Post was successfully updated.'
+      if !@post.elements.size.positive?
+        notice = 'Post must have at least one element.'
       else
-        render :edit
+        @post.update(post_params)
+        notice = 'Post was successfully updated.'
       end
+
+      redirect_to edit_post_path(@post), notice: notice
     end
 
     # DELETE /posts/1

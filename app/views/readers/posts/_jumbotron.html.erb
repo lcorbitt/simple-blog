@@ -1,0 +1,9 @@
+<div class="container-fluid bg-warning p-4 mb-4">
+  <div class="container bg-warning p-3">
+    <h1 class="display-4"><%= post.title %></h1>
+    <hr>
+    <p><%= post.description %></p>
+    <p class="mb-0"><%= post.author.name %></p>
+    <small class="text-secondary mb-0"><%= post.created_at.strftime("%B %d, %Y") %></small>
+  </div>
+</div>

@@ -4,7 +4,9 @@ class PublisherReflex < ApplicationReflex
   def publish
     post = Post.find(element.dataset[:post_id])
 
-    post.update(published: true, published_at: Time.now)
+    if post.elements.size.positive?
+      post.update(published: true, published_at: Time.now)
+    end
   end
 
   def unpublish

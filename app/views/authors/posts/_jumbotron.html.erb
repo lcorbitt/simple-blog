@@ -1,0 +1,15 @@
+<div class="container-fluid bg-warning p-4 mb-4 border border-bottom border-dark border-start-0 border-top-0 border-end-0">
+  <div class="container bg-warning p-3">
+    <h1 class="display-4">My Posts</h1>
+    <hr>
+    <div class="d-flex justify-content-between">
+      <p>Welcome, <%= author.name %> </p>
+      <%= link_to 'New Post', new_post_path, class: "btn btn-outline-dark float-end rounded-pill" %>
+    </div>
+
+    <div class="">
+      <small class="text-secondary d-block"><%= author.email %></small>
+      <small class="d-block">Join Date: <%= author.created_at.strftime("%B %d, %Y") %></small>
+    </div>
+  </div>
+</div>

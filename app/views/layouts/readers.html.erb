@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SimpleBlog</title>
+    <title>wäCH</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -18,11 +18,15 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="bg-light readers <%= controller_name %> <%= action_name %>">
-    <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <%= yield %>
-    </div>
+  <body class="bg-light readers <%= controller_name %> <%= action_name %>"> 
+    <% if notice %>
+      <p class="notice p-0 mb-0 bg-dark text-light ps-5"><%= notice %></p>
+    <% end %>
+
+    <% if alert %>
+      <p class="alert p-0 mb-0 bg-danger text-light ps-5"><%= alert %></p>
+    <% end %>
+  
+    <%= yield %>
   </body>
 </html>
