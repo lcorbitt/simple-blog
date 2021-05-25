@@ -22,11 +22,11 @@
 
   <body class="bg-light readers <%= controller_name %> <%= action_name %>"> 
     <% if notice %>
-      <p class="notice p-0 mb-0 bg-dark text-light ps-5 text-center"><%= notice %></p>
+      <p class="notice p-2 mb-0 bg-dark text-light text-center"><%= notice %></p>
     <% end %>
 
     <% if alert %>
-      <p class="alert p-0 mb-0 bg-danger text-light ps-5 text-center"><%= alert %></p>
+      <p class="alert p-2 mb-0 bg-danger text-light text-center"><%= alert %></p>
     <% end %>
   
     <%= yield %>
