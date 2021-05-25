@@ -11,7 +11,7 @@ class Post < ApplicationRecord
   validate :hero_image_attached?
 
   validates :title, :description, presence: true
-  validates_length_of :description, within: 50..250
+  validates_length_of :description, within: 50..120
 
   scope :published, -> do
     where(published: true)
