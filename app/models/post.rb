@@ -24,7 +24,7 @@ class Post < ApplicationRecord
   attr_accessor :slug
 
   def should_generate_new_friendly_id?
-    new_record? || slug_changed? || title_changed?
+    new_record? || slug.nil? || title_changed?
   end
 
   private
