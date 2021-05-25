@@ -32,9 +32,9 @@ gem 'redis', '~> 4.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
-gem 'simple_form'
-gem 'friendly_id'
+gem 'friendly_id', '~> 5.4.0'
 gem 'pagy', '~> 3.13'
+gem 'simple_form'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
