@@ -22,11 +22,11 @@
 
   <body class="bg-light <%= controller_name %> <%= action_name %>" style="min-height: 100%;"> 
     <% if notice %>
-      <p class="notice p-0 mb-0 bg-dark text-light ps-5"><%= notice %></p>
+      <p class="notice p-0 mb-0 bg-dark text-light ps-5 text-center"><%= notice %></p>
     <% end %>
 
     <% if alert %>
-      <p class="alert p-0 mb-0 bg-danger text-light ps-5"><%= alert %></p>
+      <p class="alert p-0 mb-0 bg-danger text-light ps-5 text-center"><%= alert %></p>
     <% end %>
   
     <%= yield %>
